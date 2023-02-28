@@ -7,22 +7,25 @@
 //**********************************
 
 #include<iostream>
-#include<cstdlib>
-#include<ctime>
+#include<tuple>
+#include<math.h>
+using namespace std;
 
 int main() 
 {
-    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    // tuple<unsigned int, unsigned int, unsigned int> list;
+    // list = make_tuple(01, 100, 100);
+    // cout << get<0>(list);
 
-    for (int i = 0; i <+ 100; ++i)
+    int processID = 1;
+    float ArrivalTime;
+    float ServiceTime;
+
+    for (int i = 0; i < 1000; i++)
     {
-        std::cout << std::rand() << "\t";
+        ArrivalTime = ((-(1/2)) * (log(rand())));
 
-        if (i % 5 == 0)
-        {
-            std::cout << "\n";
-        }
-        
+        cout << processID << "   " << ArrivalTime << "   " << ServiceTime << "\n";
     }
-    return 0;
+    
 }

@@ -11,15 +11,13 @@
 #include<iomanip>
 #include<cmath>
 #include<time.h>
-
 using namespace std;
 
 int main() 
 {
+    srand((unsigned)time(NULL));
     int processID = 1;
     double arrivalTime = 0;
-
-    srand((unsigned)time(NULL));
     
     for (int i = 0; i < 1000; i++)
     {

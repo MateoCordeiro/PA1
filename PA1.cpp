@@ -7,8 +7,12 @@
 //**********************************
 
 #include<iostream>
+#include<iomanip>
+#include<cstdlib>
 #include<tuple>
-#include<math.h>
+#include<cmath>
+#include<time.h>
+#include<random>
 using namespace std;
 
 int main() 
@@ -18,14 +22,20 @@ int main()
     // cout << get<0>(list);
 
     int processID = 1;
-    float ArrivalTime;
-    float ServiceTime;
-
+    double arrivalTime = 0;
+    float serviceTime = 0;
+    srand((unsigned)time(NULL));
+    
     for (int i = 0; i < 1000; i++)
     {
-        ArrivalTime = ((-(1/2)) * (log(rand())));
+        double tempArrivalTime;
+        tempArrivalTime = (-1.0/2.0) * (log((float)rand() / RAND_MAX));
+        arrivalTime += tempArrivalTime;
 
-        cout << processID << "   " << ArrivalTime << "   " << ServiceTime << "\n";
+        cout << left << setw(5) << processID 
+             << left << setw(8) << setprecision(6) << arrivalTime 
+             << left << setw(5) << serviceTime 
+             << "\n";
+        processID++;
     }
-    
 }

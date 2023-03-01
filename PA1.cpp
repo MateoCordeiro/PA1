@@ -8,11 +8,9 @@
 
 #include<iostream>
 #include<iomanip>
-#include<cstdlib>
-#include<tuple>
 #include<cmath>
 #include<time.h>
-#include<random>
+
 using namespace std;
 
 int main() 

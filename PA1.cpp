@@ -17,10 +17,6 @@ using namespace std;
 
 int main() 
 {
-    // tuple<unsigned int, unsigned int, unsigned int> list;
-    // list = make_tuple(01, 100, 100);
-    // cout << get<0>(list);
-
     int processID = 1;
     double arrivalTime = 0;
     float serviceTime = 0;
@@ -34,7 +30,7 @@ int main()
 
         cout << left << setw(5) << processID 
              << left << setw(8) << setprecision(6) << arrivalTime 
-             << left << setw(5) << serviceTime 
+             << left << setw(5) << tempArrivalTime 
              << "\n";
         processID++;
     }

@@ -19,7 +19,7 @@ int main()
 {
     int processID = 1;
     double arrivalTime = 0;
-    float serviceTime = 0;
+
     srand((unsigned)time(NULL));
     
     for (int i = 0; i < 1000; i++)

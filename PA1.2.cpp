@@ -18,26 +18,38 @@ int main()
     srand((unsigned)time(NULL));
 
     float totalTime;
-    float server1FailTime = 0;
-    float server2FailTime = 0;
-    server1FailTime = -500.0 * log((float)rand() / RAND_MAX);
-    server2FailTime = -500.0 * log((float)rand() / RAND_MAX);
+    float server1FailTime = -500.0 * log((float)rand() / RAND_MAX);
+    float server2FailTime = -500.0 * log((float)rand() / RAND_MAX);
     float server1TotalTime = server1FailTime;
     float server2TotalTime = server2FailTime;
 
-    float clock = 0;
     int crash = 0;
 
     while (server1TotalTime || server2TotalTime < (24 * 365 * 20))
     {
-        if (abs(server1FailTime-server2FailTime) <= 10 || abs(server2FailTime-server1FailTime) <= 10)
+        if (abs(server1TotalTime-server2TotalTime) <= 10 || abs(server2TotalTime-server1TotalTime) <= 10)
         {
-            cout << "ABSOLUTE FAILURE";
+            cout << "ABSOLUTE FAILURE : Server 1 crash at " << server1TotalTime << " | Server 2 crashed at " << server2TotalTime;
             break;
         }
         else
         {
-            
+            if (server1TotalTime < server2TotalTime)
+            {
+                crash += 1;
+                cout << "Crash: " << crash << " | Server 1 crash at: " << server1TotalTime << "\n";
+                server1TotalTime += 10;
+                server1FailTime = -500.0 * log((float)rand() / RAND_MAX);;
+                server1TotalTime += server1FailTime;
+            }
+            if (server2TotalTime < server1TotalTime)
+            {
+                crash += 1;
+                cout << "Crash: " << crash << " | Server 2 crash at: " << server2TotalTime << "\n";
+                server2TotalTime += 10;
+                server2FailTime = -500.0 * log((float)rand() / RAND_MAX);;
+                server2TotalTime += server2FailTime;
+            }
         }
     }
 }
